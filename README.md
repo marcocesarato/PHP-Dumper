@@ -1,6 +1,6 @@
 # PHP Dumper
 
-**Version:** 0.1.2 beta
+**Version:** 0.1.3 beta
 
 **Github:** https://github.com/marcocesarato/PHP-Dumper
 
@@ -46,5 +46,5 @@ Dumper::fatal($arr /* , ... */); // Print and die
 | enableHighlight      |   return void  | Enable Highlight (default true) |
 | disableHighlight      |   return void  | Disable Highlight |
 | disableHighlight      |   return void  | Disable Highlight |
-| getDepth      |   return void  | Set Object/Array dump depth |
-| setDepth      |   return int  | Get Object/Array dump depth |
+| getDepth      |   return int  | Set Object/Array dump depth |
+| setDepth      |   int $depth<br>return void  | Get Object/Array dump depth |
