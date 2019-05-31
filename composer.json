@@ -1,0 +1,16 @@
+{
+  "name": "marcocesarato/dumper",
+  "description": "This class displays structured information about one or more expressions that includes its type and value. Arrays and objects are explored recursively with values indented to show structure.",
+  "type": "library",
+  "license": "GPL-3.0-or-later",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Marco Cesarato",
+      "email": "cesarato.developer@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=4.0.0"
+  }
+}
