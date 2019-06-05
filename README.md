@@ -1,6 +1,6 @@
 # PHP Dumper
 
-**Version:** 0.1.5 beta
+**Version:** 0.1.6 beta
 
 **Github:** https://github.com/marcocesarato/PHP-Dumper
 
@@ -8,7 +8,13 @@
 
 ## Description
 
-This class displays structured information about one or more expressions that includes its type and value. Arrays and objects are explored recursively with values indented to show structure.
+This class can display a formatted version of variable values.
+
+It can take the values of one or more variables and generates a string that displays the variable values in a readable format.
+
+Arrays and objects can be traversed recursively to display its member values.
+
+The class can either return a string with the formatted variable values, display it to the current page or even exit the current script.
 
 ## Requirements
 

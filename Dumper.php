@@ -8,7 +8,7 @@ namespace marcocesarato\dumper;
  * @copyright  Copyright (c) 2019
  * @license    http://opensource.org/licenses/gpl-3.0.html GNU Public License
  * @link       https://github.com/marcocesarato/PHP-Dumper
- * @version 0.1.5
+ * @version 0.1.6
  */
 class Dumper {
 
@@ -103,8 +103,6 @@ class Dumper {
         }
         if(self::$highlight) {
             header("Content-Type: text/html");
-        } else {
-            header("Content-Type: text/plain");
         }
     }
 
