@@ -1,6 +1,6 @@
 # PHP Dumper
 
-**Version:** 0.1.6 beta
+**Version:** 0.1.7 beta
 
 **Github:** https://github.com/marcocesarato/PHP-Dumper
 
@@ -48,6 +48,7 @@ Dumper::fatal($arr /* , ... */); // Print and die
 | get      | 	   mixed $expression [, mixed $... ]<br>return string | Return dump as string  |
 | out    |       mixed $expression [, mixed $... ]<br>return void   | Print dump      |
 | clean      |    mixed $expression [, mixed $... ]<br>return void  | Clean stream (ob_clean) and print dump |
+| json      |    mixed $expression [, mixed $... ]<br>return void  | Clean stream (ob_clean) and print json dump |
 | fatal      |   mixed $expression [, mixed $... ]<br>return void  | Print dump and die |
 | enableHighlight      |   return void  | Enable Highlight (default true) |
 | disableHighlight      |   return void  | Disable Highlight |

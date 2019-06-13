@@ -8,7 +8,7 @@ namespace marcocesarato\dumper;
  * @copyright  Copyright (c) 2019
  * @license    http://opensource.org/licenses/gpl-3.0.html GNU Public License
  * @link       https://github.com/marcocesarato/PHP-Dumper
- * @version 0.1.6
+ * @version 0.1.7
  */
 class Dumper {
 
@@ -17,6 +17,15 @@ class Dumper {
 
     private static $_objects;
     private static $_output;
+
+	/**
+	 * Disable php errors
+	 */
+    private static function disableErrors() {
+	    @ini_set('display_errors', 0);
+	    @ini_set('display_startup_errors', 0);
+	    error_reporting(0);
+    }
 
     /**
      * Die with dump
@@ -36,12 +45,25 @@ class Dumper {
         die(self::internalDump($args));
     }
 
+	/**
+	 * Clean die in json
+	 */
+	public static function json() {
+		self::disableErrors();
+		ob_clean();
+		header('Content-Type: application/json');
+		$args = func_get_args();
+		$args = self::parseArgs($args);
+		die(json_encode($args, JSON_PRETTY_PRINT));
+	}
+
     /**
      * Clean die with dump
      */
     public static function clean() {
+	    self::disableErrors();
+	    ob_clean();
         self::setHeader();
-        ob_clean();
         $args = func_get_args();
         die(self::internalDump($args));
     }
