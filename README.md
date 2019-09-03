@@ -1,6 +1,6 @@
 # PHP Dumper
 
-**Version:** 0.1.7 beta
+**Version:** 1.0.8 beta
 
 **Github:** https://github.com/marcocesarato/PHP-Dumper
 
