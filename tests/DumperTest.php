@@ -1,5 +1,7 @@
 <?php
 
+namespace marcocesarato\dumper\tests;
+
 use marcocesarato\dumper\Dumper;
 use PHPUnit\Framework\TestCase;
 
