@@ -18,7 +18,7 @@ The class can either return a string with the formatted variable values, display
 
 ## Requirements
 
-- php 4+
+- php 5.6+
 
 ## Install
 
@@ -32,7 +32,7 @@ The class can either return a string with the formatted variable values, display
 ```php
 use marcocesarato\dumper\Dumper;
 
-$arr = array(1,2,3,4,5);
+$arr = [1,2,3,4,5];
 
 $dump = Dumper::get($arr, $arr /* , ... */); // Get string of dump
 Dumper::out($arr /* , ... */); // Print
