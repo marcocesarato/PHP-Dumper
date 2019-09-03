@@ -3,8 +3,20 @@
 use marcocesarato\dumper\Dumper;
 use PHPUnit\Framework\TestCase;
 
-final class EmailTest extends TestCase
+final class DumperTest extends TestCase
 {
+
+    /**
+     * Test instance
+     */
+    public function testInstance(): void
+    {
+        $this->assertInstanceOf(
+            Dumper::class,
+            new Dumper()
+        );
+    }
+
     /**
      * Test Get Dump
      */
