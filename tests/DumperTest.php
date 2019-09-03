@@ -9,7 +9,7 @@ final class DumperTest extends TestCase
     /**
      * Test instance
      */
-    public function testInstance(): void
+    public function testInstance()
     {
         $this->assertInstanceOf(
             Dumper::class,
