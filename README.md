@@ -1,5 +1,7 @@
 # PHP Dumper
 
+[![Build Status](https://travis-ci.com/marcocesarato/PHP-Dumper.svg?branch=master)](https://travis-ci.com/marcocesarato/PHP-Dumper)
+
 **Version:** 1.0.8 beta
 
 **Github:** https://github.com/marcocesarato/PHP-Dumper
