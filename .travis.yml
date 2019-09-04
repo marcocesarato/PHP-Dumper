@@ -8,4 +8,4 @@ php:
 install:
   - composer install -n
 script:
-  - vendor/bin/phpunit
+  - composer test

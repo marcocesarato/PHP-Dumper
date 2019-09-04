@@ -11,7 +11,7 @@
     }
   ],
   "scripts": {
-    "test": "phpunit"
+    "test": "vendor/bin/phpunit"
   },
   "require": {
     "php": ">=5.6",
