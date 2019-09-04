@@ -19,4 +19,29 @@ final class EmailTest extends TestCase
         );
     }
 
+    /**
+     * Test Get Depth
+     */
+    public function testGetDepth()
+    {
+        $expectedDepth = 100;
+
+        Dumper::setDepth($expectedDepth);
+
+        $this->assertEquals($expectedDepth, Dumper::getDepth());
+    }
+
+    /**
+     * Test Get Highlight
+     */
+    public function testGetHighlight()
+    {
+        Dumper::enableHighlight();
+
+        $this->assertTrue(Dumper::getHighlight());
+
+        Dumper::disableHighlight();
+
+        $this->assertFalse(Dumper::getHighlight());
+    }
 }
