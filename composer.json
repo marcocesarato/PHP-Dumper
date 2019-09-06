@@ -11,14 +11,21 @@
     }
   ],
   "scripts": {
-    "test": "vendor/bin/phpunit"
+    "test": "vendor/bin/phpunit",
+    "fix-cs": "vendor/bin/php-cs-fixer fix --config=.cs.php",
+    "check-cs": "vendor/bin/php-cs-fixer fix --dry-run --format=txt --verbose --diff --diff-format=udiff --config=.cs.php",
+    "check-all": [
+      "@check-cs",
+      "@test"
+    ]
   },
   "require": {
     "php": ">=5.6",
     "ext-json": "*"
   },
   "require-dev": {
-    "phpunit/phpunit": "^5.0"
+    "phpunit/phpunit": "^5.0",
+    "friendsofphp/php-cs-fixer": "^2.15"
   },
   "autoload": {
     "psr-4": {

@@ -12,7 +12,6 @@ namespace marcocesarato\dumper;
  */
 class Dumper
 {
-
     private static $highlight = true;
     private static $depth = 10;
 
@@ -217,7 +216,7 @@ class Dumper
         if (empty($_SERVER['REMOTE_ADDR']) and ! isset($_SERVER['HTTP_USER_AGENT']) and count($_SERVER['argv']) > 0) {
             return true;
         }
-        if ( ! array_key_exists('REQUEST_METHOD', $_SERVER)) {
+        if (! array_key_exists('REQUEST_METHOD', $_SERVER)) {
             return true;
         }
 

@@ -8,4 +8,4 @@ php:
 install:
   - composer install -n
 script:
-  - composer test
+  - composer check-all
