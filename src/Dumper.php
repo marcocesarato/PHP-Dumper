@@ -8,7 +8,7 @@ namespace marcocesarato\dumper;
  * @copyright  Copyright (c) 2019
  * @license    http://opensource.org/licenses/gpl-3.0.html GNU Public License
  * @link       https://github.com/marcocesarato/PHP-Dumper
- * @version    1.0.8
+ * @version    1.0.0.8
  */
 class Dumper
 {
