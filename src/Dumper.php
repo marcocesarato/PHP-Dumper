@@ -3,11 +3,14 @@
 namespace marcocesarato\dumper;
 
 /**
- * Dump Class
+ * Dump Class.
+ *
  * @author     Marco Cesarato <cesarato.developer@gmail.com>
  * @copyright  Copyright (c) 2019
  * @license    http://opensource.org/licenses/gpl-3.0.html GNU Public License
- * @link       https://github.com/marcocesarato/PHP-Dumper
+ *
+ * @see       https://github.com/marcocesarato/PHP-Dumper
+ *
  * @version    1.0.0.8
  */
 class Dumper
@@ -19,7 +22,7 @@ class Dumper
     private static $_output;
 
     /**
-     * Disable php errors
+     * Disable php errors.
      */
     private static function disableErrors()
     {
@@ -29,7 +32,7 @@ class Dumper
     }
 
     /**
-     * Die with dump
+     * Die with dump.
      */
     public static function out()
     {
@@ -39,7 +42,7 @@ class Dumper
     }
 
     /**
-     * Die with dump
+     * Die with dump.
      */
     public static function fatal()
     {
@@ -49,7 +52,7 @@ class Dumper
     }
 
     /**
-     * Clean die in json
+     * Clean die in json.
      */
     public static function json()
     {
@@ -62,7 +65,7 @@ class Dumper
     }
 
     /**
-     * Clean die with dump
+     * Clean die with dump.
      */
     public static function clean()
     {
@@ -74,7 +77,8 @@ class Dumper
     }
 
     /**
-     * Get dump
+     * Get dump.
+     *
      * @return string
      */
     public static function get()
@@ -85,7 +89,8 @@ class Dumper
     }
 
     /**
-     * Get Highlight
+     * Get Highlight.
+     *
      * @return bool
      */
     public static function getHighlight()
@@ -94,7 +99,7 @@ class Dumper
     }
 
     /**
-     * Enable Highlight
+     * Enable Highlight.
      */
     public static function enableHighlight()
     {
@@ -102,7 +107,7 @@ class Dumper
     }
 
     /**
-     * Disable Highlight
+     * Disable Highlight.
      */
     public static function disableHighlight()
     {
@@ -110,7 +115,8 @@ class Dumper
     }
 
     /**
-     * Get Depth
+     * Get Depth.
+     *
      * @return int
      */
     public static function getDepth()
@@ -119,7 +125,8 @@ class Dumper
     }
 
     /**
-     * Set Depth
+     * Set Depth.
+     *
      * @param  int  $depth
      */
     public static function setDepth($depth)
@@ -128,7 +135,7 @@ class Dumper
     }
 
     /**
-     * Set Header
+     * Set Header.
      */
     private static function setHeader()
     {
@@ -136,18 +143,20 @@ class Dumper
             self::disableHighlight();
         }
         if (self::$highlight) {
-            header("Content-Type: text/html");
+            header('Content-Type: text/html');
         }
     }
 
     /**
-     * Internal Dump
+     * Internal Dump.
+     *
      * @param  array  $func_args
+     *
      * @return string
      */
     private static function internalDump($func_args)
     {
-        $dump = "";
+        $dump = '';
         $args = self::parseArgs($func_args);
         if (count($func_args) > 1) {
             foreach ($func_args as $var) {
@@ -164,13 +173,15 @@ class Dumper
      * Converts a variable into a string representation.
      * This method achieves the similar functionality as var_dump and print_r
      * but is more robust when handling complex objects such as PRADO controls.
+     *
      * @param  mixed variable to be dumped
-     * @param  integer maximum depth that the dumper should go into the variable. Defaults to 10.
+     * @param  int maximum depth that the dumper should go into the variable. Defaults to 10.
+     *
      * @return string the string representation of the variable
      */
     private static function generateDump($var)
     {
-        self::$_output  = '';
+        self::$_output = '';
         self::$_objects = array();
         self::parseDump($var, 0);
         if (self::$highlight) {
@@ -185,8 +196,10 @@ class Dumper
     }
 
     /**
-     * Parse args
+     * Parse args.
+     *
      * @param $args
+     *
      * @return mixed
      */
     private static function parseArgs($args)
@@ -199,7 +212,8 @@ class Dumper
     }
 
     /**
-     * Detect if is console
+     * Detect if is console.
+     *
      * @return bool
      */
     private static function isConsole()
@@ -213,10 +227,10 @@ class Dumper
         if (array_key_exists('SHELL', $_ENV)) {
             return true;
         }
-        if (empty($_SERVER['REMOTE_ADDR']) and ! isset($_SERVER['HTTP_USER_AGENT']) and count($_SERVER['argv']) > 0) {
+        if (empty($_SERVER['REMOTE_ADDR']) and !isset($_SERVER['HTTP_USER_AGENT']) and count($_SERVER['argv']) > 0) {
             return true;
         }
-        if (! array_key_exists('REQUEST_METHOD', $_SERVER)) {
+        if (!array_key_exists('REQUEST_METHOD', $_SERVER)) {
             return true;
         }
 
@@ -224,7 +238,8 @@ class Dumper
     }
 
     /**
-     * Parse Dump
+     * Parse Dump.
+     *
      * @param $var
      * @param $level
      */
@@ -247,7 +262,7 @@ class Dumper
                 self::$_output .= '{resource}';
                 break;
             case 'NULL':
-                self::$_output .= "null";
+                self::$_output .= 'null';
                 break;
             case 'unknown type':
                 self::$_output .= '{unknown}';
@@ -258,8 +273,8 @@ class Dumper
                 } elseif (empty($var)) {
                     self::$_output .= 'array()';
                 } else {
-                    $keys          = array_keys($var);
-                    $spaces        = str_repeat(' ', $level * 4);
+                    $keys = array_keys($var);
+                    $spaces = str_repeat(' ', $level * 4);
                     self::$_output .= "array\n" . $spaces . '(';
                     foreach ($keys as $key) {
                         self::$_output .= "\n" . $spaces . "    [$key] => ";
@@ -274,14 +289,14 @@ class Dumper
                 } elseif (self::$depth <= $level) {
                     self::$_output .= get_class($var) . '(...)';
                 } else {
-                    $id            = array_push(self::$_objects, $var);
-                    $className     = get_class($var);
-                    $members       = (array)$var;
-                    $keys          = array_keys($members);
-                    $spaces        = str_repeat(' ', $level * 4);
+                    $id = array_push(self::$_objects, $var);
+                    $className = get_class($var);
+                    $members = (array)$var;
+                    $keys = array_keys($members);
+                    $spaces = str_repeat(' ', $level * 4);
                     self::$_output .= "$className#$id\n" . $spaces . '(';
                     foreach ($keys as $key) {
-                        $keyDisplay    = strtr(trim($key), array("\0" => ':'));
+                        $keyDisplay = strtr(trim($key), array("\0" => ':'));
                         self::$_output .= "\n" . $spaces . "    [$keyDisplay] => ";
                         self::parseDump($members[$key], $level + 1);
                     }
